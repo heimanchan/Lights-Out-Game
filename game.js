@@ -1,6 +1,8 @@
 const WIDTH = 7;
 const HEIGHT = 5;
-const DIFFICULTY = 3;
+const DIFFICULTY = 5;
+let steps = 0;
+
 document.querySelector(".game").addEventListener("click", handleClick);
 randomBoard();
 
@@ -30,6 +32,7 @@ function toggleCellAndNeighbors(y ,x) {
 }
 
 function handleClick() {
+  steps++;
   let coordinates = event.target.id.match(/\d+/g);
   toggleCellAndNeighbors(parseInt(coordinates[0]), parseInt(coordinates[1]));
 
@@ -40,7 +43,8 @@ function handleClick() {
 
 // run on game win
 function hasWon() {
-  alert("You've won!");
+  alert(`You've won! You took ${steps} steps.`);
+  steps = 0;
 }
 
 // win logic
