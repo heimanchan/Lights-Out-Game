@@ -7,6 +7,12 @@ function randomNumber(max = 1) {
   return Math.floor(Math.random() * max)
 }
 
+function randomBoard() {
+  for (let i = 0; i < 7; i++) {
+    toggleCellAndNeighbors(randomNumber(HEIGHT), randomNumber(WIDTH));
+  }
+}
+
 function toggleCell(y ,x) {
   if ((x >= 0 && x < WIDTH) && (y >= 0 && y < HEIGHT)) {
     document.querySelector(`#cell-${y}-${x}`).classList.toggle("on");
