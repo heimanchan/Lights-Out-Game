@@ -1,6 +1,8 @@
 const WIDTH = 7;
 const HEIGHT = 5;
+const DIFFICULTY = 3;
 document.querySelector(".game").addEventListener("click", handleClick);
+randomBoard();
 
 // random number from 0 to max (excluding)
 function randomNumber(max = 1) {
@@ -8,7 +10,7 @@ function randomNumber(max = 1) {
 }
 
 function randomBoard() {
-  for (let i = 0; i < 7; i++) {
+  for (let i = 0; i < DIFFICULTY; i++) {
     toggleCellAndNeighbors(randomNumber(HEIGHT), randomNumber(WIDTH));
   }
 }
