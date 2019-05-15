@@ -2,6 +2,11 @@ const WIDTH = 7;
 const HEIGHT = 5;
 document.querySelector(".game").addEventListener("click", handleClick);
 
+// random number from 0 to max (excluding)
+function randomNumber(max = 1) {
+  return Math.floor(Math.random() * max)
+}
+
 function toggleCell(y ,x) {
   if ((x >= 0 && x < WIDTH) && (y >= 0 && y < HEIGHT)) {
     document.querySelector(`#cell-${y}-${x}`).classList.toggle("on");
