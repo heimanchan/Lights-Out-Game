@@ -14,3 +14,9 @@ function toggleCellAndNeighbors(x ,y) {
   toggleCell(x, y - 1);
   toggleCell(x, y + 1);
 }
+
+function handleClick() {
+  console.log("hello world");
+}
+
+document.querySelector(".game").addEventListener("click", handleClick);
