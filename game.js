@@ -1,5 +1,6 @@
 const WIDTH = 7;
 const HEIGHT = 5;
+document.querySelector(".game").addEventListener("click", handleClick);
 
 function toggleCell(y ,x) {
   if ((x >= 0 && x < WIDTH) && (y >= 0 && y < HEIGHT)) {
@@ -16,10 +17,20 @@ function toggleCellAndNeighbors(y ,x) {
 }
 
 function handleClick() {
-  // console.log(event.target.id);
+  
   let x, y;
   let coordinates = event.target.id.match(/\d+/g);
   toggleCellAndNeighbors(parseInt(coordinates[0]), parseInt(coordinates[1]));
 }
 
-document.querySelector(".game").addEventListener("click", handleClick);
+function isWon() {
+  let allCells = document.querySelectorAll(".game td");
+
+  for (let cell of allCells) {
+    if (document.querySelector(cell).classList.contains("on")) {
+      return false;
+    }
+  }
+
+  return true;
+}
