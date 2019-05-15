@@ -17,19 +17,25 @@ function toggleCellAndNeighbors(y ,x) {
 }
 
 function handleClick() {
-  
-  let x, y;
   let coordinates = event.target.id.match(/\d+/g);
   toggleCellAndNeighbors(parseInt(coordinates[0]), parseInt(coordinates[1]));
+
+  if (isWon()) {
+    setTimeout(hasWon, 0);
+  }
 }
 
+// run on game win
+function hasWon() {
+  alert("You've won!");
+}
+
+// win logic
 function isWon() {
   let allCells = document.querySelectorAll(".game td");
 
   for (let cell of allCells) {
-    if (document.querySelector(cell).classList.contains("on")) {
-      return false;
-    }
+    if (cell.classList.contains("on")) return false;
   }
 
   return true;
